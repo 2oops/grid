@@ -2,7 +2,7 @@
 <div>
   <!-- <background></background> -->
   <div class="header">
-    <h2>某某集团云数据中心</h2>
+    <h2>云数据中心</h2>
     <div id="time"></div>
   </div>
   <div class="container">

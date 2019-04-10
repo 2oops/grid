@@ -11,6 +11,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+* {
+  margin: 0;
+  padding: 0;
+  // max-width: 5760px;
+  // max-height: 2160px;
+}
+body {
+  // padding: 1%;
+  // background-color: #aaaaaa;
+  // background: url('../images/a.png') no-repeat center;
+}
 </style>

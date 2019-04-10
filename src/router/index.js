@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import deviceStat from '@/components/Device-stat'
+import home from '@/pages/index'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'deviceStat',
-      component: deviceStat
+      name: 'home',
+      component: home
     }
   ]
 })

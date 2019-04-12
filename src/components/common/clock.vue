@@ -6,27 +6,31 @@
 
 <template>
   <div class="overall">
-    <div class="clock-item"><i>{{number}}</i>
-    </div>
-    <div class="clock-item"><i>{{number}}</i>
-    </div>
-    <div class="clock-item"><i>{{number}}</i>
-    </div>
-    <div class="clock-item"><i>{{number}}</i>
+    <div class="clock-item" v-for="(item,index) in clockData" :key="index"><i>{{item}}</i>
     </div>
   </div>
 </template>
 
 <script>
+
+import * as mock from '@/utils/mock.js'
 export default {
   data() {
     return {
-      number: 0
+      clockData: [1,3,5,3,4]
     }
   },
 
-  methods: {
+  mounted() {
+    setInterval(this.refreshClock, 2000);
+  },
 
+  methods: {
+    refreshClock() {
+      let num = mock.getSingleNum();
+      let cData = [num.a, num.b, num.c, num.d, num.e];
+      this.clockData = cData;
+    }
   }
 }
 </script>

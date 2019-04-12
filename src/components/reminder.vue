@@ -89,7 +89,6 @@ export default {
   width: 15vw;
   height: 133px;
   border: 2px solid blue;
-  // background: #eeeeee;
   border-radius: 10px;
   margin: 10px;
 

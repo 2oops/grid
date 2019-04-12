@@ -1,6 +1,6 @@
 <template>
 <div class="echarts">
-  <canvas id="echarts" width="600px" height="400px"></canvas>
+  <canvas id="echarts" width="500px" height="400px"></canvas>
 </div>
 </template>
 
@@ -19,9 +19,9 @@ export default {
         toolbox: {
           show: true,
           feature: {
-            restore: {
-              show: true
-            }
+            // restore: {
+            //   show: true
+            // }
           }
         },
         legend: {//图例
@@ -131,7 +131,7 @@ export default {
   // height: 400px;
   
   canvas {
-    width: 37.6vw;
+    width: 36vw;
     height: 400px;
   }
 }

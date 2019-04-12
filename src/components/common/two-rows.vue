@@ -20,7 +20,6 @@ export default {
     height: 133px;
     border: 2px solid blue;
     border-radius: 10px;
-    // background: #eeeeee;
     
     .item {
 

@@ -31,7 +31,6 @@ export default {
 <style lang="less">
   .stat {
     border: 2px solid blue;
-    // background: yellow;
     border-radius: 10px;
     margin: 10px;
 

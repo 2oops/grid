@@ -2,7 +2,7 @@
 <div>
   <background></background>
   <div class="header">
-    <h2>云数据中心</h2>
+    <div class="title">云数据中心</div>
     <div id="time"></div>
   </div>
   <div class="container">
@@ -76,11 +76,28 @@ export default {
 </script>
 
 <style lang="less">
-@item-width: 15.6vw;
+
 .header {
   height: 12.5%;
-  text-align: center;
-  color: white;
+  
+
+  .title {
+    float: left;
+    color: blue;
+    width: 60%;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: right;
+  }
+
+  #time {
+    float: right;
+    width: 38%;
+    color: white;
+    text-align: right;
+    margin-right: 2%;
+    text-align: right;
+  }
 }
 
 .container {
@@ -92,7 +109,7 @@ export default {
   "industry customers map province weight"
   "tops customers map province height"
   "reminder totaltime statistics runtime trips";
-  grid-template-columns: @item-width @item-width auto @item-width @item-width;
+  grid-template-columns: 15.6vw 15.6vw auto 15.6vw 15.6vw;
   grid-template-rows: repeat(4, 1fr);
   gap: 35px 30px;
 
@@ -101,11 +118,9 @@ export default {
     }
     .customers {
       grid-area: customers;
-      // background: #eeeeee;
     }
     .map {
       grid-area: map;
-      // background: #bbbbbb;
       height: 500px;
     }
     .value {
@@ -116,7 +131,6 @@ export default {
     }
     .province {
       grid-area: province;
-      // background: #bbbbbb;
     }
     .weight {
       grid-area: weight;
@@ -129,7 +143,6 @@ export default {
     }
     .statistics {
       grid-area: statistics;
-      // background: #cccccc;
     }
     .runtime {
       grid-area: runtime;

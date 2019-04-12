@@ -79,7 +79,6 @@ export default {
 .main {
   width: 15vw;
   height: 133px;
-  // background: #aaaaaa;
   border: 2px solid blue;
   border-radius: 10px;
   margin: 10px;

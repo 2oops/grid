@@ -6,20 +6,18 @@
 
 <template>
   <div class="main">
-    <div class="stat-title">统计设备</div>
+    <div class="main-title">告警总次数</div>
     <div class="echarts">
-      <canvas id="chartA" width="300px" height="200px"></canvas>
-      <canvas id="chartB" width="300px" height="200px"></canvas>
+      <canvas id="alarmChart" width="300px" height="200px"></canvas>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'deviceStat',
   data () {
     return {
-      chartA: '',
+      alarmChart: '',
       chartB: '',
       option: {
         tooltip: {
@@ -29,7 +27,7 @@ export default {
         legend: {
           orient: 'vertical',
           x: 'left',
-          data:['直接访问','邮件营销']
+          data:['直接访问','邮件营销','统计']
         },
         series: [{
           name:'访问来源',
@@ -56,7 +54,8 @@ export default {
           },
           data:[
             {value:335, name:'直接访问'},
-            {value:310, name:'邮件营销'}
+            {value:310, name:'邮件营销'},
+            {value:353, name:'统计'}
           ]
         }]
       }
@@ -69,11 +68,8 @@ export default {
 
   methods: {
     init() {
-      this.chartA = this.$echarts.init(document.getElementById('chartA'));
-      this.chartA.setOption(this.option);
-
-      this.chartB = this.$echarts.init(document.getElementById('chartB'));
-      this.chartB.setOption(this.option);
+      this.alarmChart = this.$echarts.init(document.getElementById('alarmChart'));
+      this.alarmChart.setOption(this.option);
     }
   }
 }
@@ -87,23 +83,14 @@ export default {
   border: 2px solid blue;
   border-radius: 10px;
   margin: 10px;
-  
-  .stat-title {
+
+  .main-title {
     color: white;
   }
 
-  .echarts {
-    display: inline-block;
-    margin: 10px;
-
-    #chartA {
-      width: 100px;
-      height: 71px;
-    }
-    #chartB {
-      #chartA;
-      float: right;
-    }
+  #alarmChart {
+    width: 100px;
+    height: 71px;
   }
 }
 </style>

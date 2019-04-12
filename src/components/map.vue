@@ -14,40 +14,41 @@ export default {
       chart: '',
       option: {
         title: {
-          text: 'Echarts'
+          // text: 'Echarts'
         },
         toolbox: {
           show: true,
           feature: {
-            dataView: {
-              show: true
-            },
             restore: {
               show: true
-            },
-            saveAsImage: {
-              show: true
-            },
-            dataZoom: {
-              show: true
-            },
-            magicType: {
-              type: ['line', 'bar']
             }
           }
         },
         legend: {//图例
-            data: '销量'
+            data: '销量',
+            textStyle:{
+              color:"#fff"
+            }
           },
         xAxis: {
           name: '商品',
           axisTick: {
             length: 6
           }, 
-          data: ['Q','W','E','R','T','Y']
+          data: ['Q','W','E','R','T','Y'],
+          axisLine: {
+            lineStyle: {
+              color: "#fff",
+            }
+          }
         },
         yAxis: {
           type: 'value',
+          axisLine: {
+            lineStyle: {
+              color: "#fff",
+            }
+          },
           scale: true,
           name: '销量',
           max: 40,
@@ -85,18 +86,23 @@ export default {
     init() {
       this.chart = this.$echarts.init(document.getElementById('echarts'));
       this.chart.setOption(this.option);
+      
+      //reference  https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize
+ 
+      setTimeout(function (){
+        window.onresize = function () {
+          this.chart.resize();
+        }
+      },200)
     },
 
     refresh() {
       let num = mock.getNum();
-      console.log(num.a);
       let sData = [num.a, num.b, num.c, num.d, num.e, num.f];
       let xData = ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-      console.log(sData);
-      for(let i = 0; i < xData.length; i++) {
-        this.option.xAxis.data.push(xData[i]);
-        this.option.series[0].data.push(sData[i]);
-      }
+
+      this.option.xAxis.data.splice(0, 6, "衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+      this.option.series[0].data.splice(0, 6, num.a, num.b, num.c, num.d, num.e, num.f);
     },
   },
 
@@ -121,7 +127,12 @@ export default {
 
 <style lang="less">
 .echarts {
-  width: 600px;
-  height: 400px;
+  // width: 37.6vw;
+  // height: 400px;
+  
+  canvas {
+    width: 37.6vw;
+    height: 400px;
+  }
 }
 </style>

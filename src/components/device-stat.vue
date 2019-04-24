@@ -8,8 +8,8 @@
   <div class="main">
     <div class="stat-title">统计设备</div>
     <div class="echarts">
-      <canvas id="chartA" width="300px" height="200px"></canvas>
-      <canvas id="chartB" width="300px" height="200px"></canvas>
+      <div id="chartA" width="300px" height="200px"></div>
+      <div id="chartB" width="300px" height="200px"></div>
     </div>
   </div>
 </template>
@@ -93,11 +93,13 @@ export default {
   }
 
   .echarts {
-    display: inline-block;
+    display: flex;
     margin: 10px;
 
     #chartA {
-      width: 100px;
+      position: relative;
+      z-index: 99;
+      width: 7vw;
       height: 71px;
     }
     #chartB {

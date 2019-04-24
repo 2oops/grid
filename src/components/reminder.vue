@@ -8,9 +8,9 @@
   <div class="remind">
     <div class="reminder-title">到期提醒</div>
     <div class="def">
-      <canvas id="chartD"></canvas>
-      <canvas id="chartE"></canvas>
-      <canvas id="chartF"></canvas>
+      <div id="chartD"></div>
+      <div id="chartE"></div>
+      <div id="chartF"></div>
     </div>
   </div>
 </template>
@@ -101,11 +101,13 @@ export default {
   .def {
     position: relative;
     z-index: inherit;
-    display: inline-block;
+    display: flex;
 
     #chartD {
-      width: 93px;
-      height: 62px;
+      position: relative;
+      z-index: 99;
+      width: 5vw;
+      height: 71px;
     }
     #chartE {
       #chartD;

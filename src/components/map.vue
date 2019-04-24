@@ -1,7 +1,5 @@
 <template>
-<div class="echarts">
-  <canvas id="echarts" width="600px" height="400px"></canvas>
-</div>
+  <div id="echarts"></div>
 </template>
 
 <script>
@@ -126,13 +124,11 @@ export default {
 </script>
 
 <style lang="less">
-.echarts {
-  // width: 37.6vw;
-  // height: 400px;
-  
-  canvas {
+  #echarts {
+    position: relative;
     width: 37.6vw;
     height: 400px;
+    z-index: 99;
   }
-}
+
 </style>

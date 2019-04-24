@@ -7,9 +7,7 @@
 <template>
   <div class="main">
     <div class="main-title">告警总次数</div>
-    <div class="echarts">
-      <canvas id="alarmChart" width="300px" height="200px"></canvas>
-    </div>
+    <div id="alarmChart" ></div>
   </div>
 </template>
 
@@ -89,8 +87,11 @@ export default {
   }
 
   #alarmChart {
-    width: 100px;
+    position: relative;
+    z-index: 99;
+    width: 15vw;
     height: 71px;
+    margin: 20px;
   }
 }
 </style>

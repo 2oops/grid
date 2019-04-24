@@ -11,3 +11,14 @@ export function getNum() {
   })
   return num;
 }
+
+export function getSingleNum() {
+  let num = Mock.mock({
+    'a|0-9': 6,
+    'b|0-9': 6,
+    'c|0-9': 6,
+    'd|0-9': 6,
+    'e|0-9': 69
+  })
+  return num;
+}

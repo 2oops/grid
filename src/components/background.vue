@@ -29,7 +29,7 @@ export default {
     var hue = 217
     var stars = []
     var count = 0
-    var maxStars = 130 // 星星数量
+    var maxStars = 1 // 星星数量
 
     var canvas2 = document.createElement('canvas')
     var ctx2 = canvas2.getContext('2d')

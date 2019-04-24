@@ -17,9 +17,9 @@ export default {
         toolbox: {
           show: true,
           feature: {
-            restore: {
-              show: true
-            }
+            // restore: {
+            //   show: true
+            // }
           }
         },
         legend: {//图例
@@ -127,8 +127,7 @@ export default {
   #echarts {
     position: relative;
     width: 37.6vw;
-    height: 400px;
+    height: auto;
     z-index: 99;
   }
-
 </style>

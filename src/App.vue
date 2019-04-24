@@ -20,7 +20,6 @@ export default {
 }
 body {
   // padding: 1%;
-  // background-color: #aaaaaa;
-  // background: url('../images/a.png') no-repeat center;
+  
 }
 </style>

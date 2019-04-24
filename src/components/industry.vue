@@ -26,7 +26,6 @@ export default {
     border: 2px solid blue;
     border-radius: 10px;
     margin: 10px;
-    // background: #cccccc;
 
     .font {
       color: white;

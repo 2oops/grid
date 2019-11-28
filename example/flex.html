@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .left {
+        width: 50%;
+        height: 700px;
+        border: 1px dashed yellowgreen;
+        border-radius: 10px;
+
+        display: flex;
+        /* flex-direction: row; */
+        align-items: center;
+        /* space-evenly均匀排列每个元素 */
+        justify-content: space-around;
+        /* flex-wrap: wrap-reverse; */
+        /* flex-flow 为flex-direction 和flex-wrap的简写; */
+        flex-flow: row wrap; 
+        /* space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。 */
+        /* space-between：两端对齐，项目之间的间隔都相等。 */
+      }
+      .left :nth-child(3n){
+        width: 150px;
+        height: 200px;
+      }
+      .right {
+        display: flex;
+        width: 50%;
+        height: 700px;
+        border: 1px dashed yellowgreen;
+        border-radius: 10px;
+        /* baseline: 项目的第一行文字的基线对齐。 */
+        /* stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。 */
+        align-items: stretch;
+        justify-content: space-around;
+        flex-flow: row wrap;
+        /* align-content多根轴线的对齐方式 */
+        /* stretch（默认值）：轴线占满整个交叉轴。 */
+        align-content: space-around;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid salmon;
+        border-radius: 5px;
+      }
+      /* 子项属性
+      order:默认值为0，整数，数值越小越靠前排列，同数值按该数值的默认顺序
+
+      flex-grow：子项的放大比例，默认不放大即为0
+
+      flex-shrink：项目的缩小比例,默认不缩小即为1，空间不足则全部自动等比缩小,负值无效(>IE10)
+      计算每个子项被移出的溢出量，[（子项总宽度-容器宽度）*shrink值/(子项加权综合值)]*（子项总宽度-容器宽度）即得各子项实际宽度
+      https://www.runoob.com/cssref/css3-pr-flex-shrink.html
+
+      flex-basis: 默认为项目原本大小即为auto,设置子项主轴的px大小
+
+      flex: flex-grow flex-shrink flex-basis|auto|initial|inherit;，默认0 1 auto,建议使用
+      快捷值：auto (1 1 auto) 和 none (0 0 auto)
+      
+      align-self：允许不一样的对齐方式，可覆盖align-items属性，默认auto，即继承父元素的align-item
+      align-self: auto | flex-start | flex-end | center | baseline | stretch; auto专属，其他一致
+       */
+    </style>
+  </head>
+
+  <body>
+    <div class="left">
+      <div class="box" style="order: 2; align-self: flex-end; flex-grow: 2;">1</div>
+      <div class="box" style="order: 1">2</div>
+      <div class="box" style="order: 1; flex-grow: 2;">3</div>
+      <div class="box" style="order: 3">4</div>
+      <div class="box">5</div>
+      <div class="box" style="align-self: flex-start;">6</div>
+      <div class="box">7</div>
+      <div class="box" style="flex-basis: 50px;">8</div>
+      <!-- 一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小 -->
+      <div class="box" style="flex-shrink: 0;">9</div>
+    </div>
+    <div class="right">
+        <div class="box">11</div>
+        <div class="box">22</div>
+        <div class="box">33</div>
+        <div class="box">44</div>
+        <div class="box">55</div>
+        <div class="box">66</div>
+        <div class="box">77</div>
+        <div class="box" style="flex-grow: 3;">88</div>
+        <div class="box" style="flex-grow: 1;">99</div>
+    </div>
+  </body>
+</html>

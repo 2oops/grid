@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      .user {
+        width: 500px;
+        height: 500px; 
+        border: 1px solid red;
+        border-radius: 50%;
+
+        background-size: 500px 500px;
+        box-shadow:0px 0px 6px 1px rgba(0,0,0,0.3) inset;
+        background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576170925998&di=6977036b5c5f66f9eee9b2e859c1346b&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F32fa828ba61ea8d3824e72a2970a304e251f5823.jpg');
+        
+        /* animation: rotate 3s linear delay iteration-count direction fill-mode; */
+        /* transition: -webkit-transform 1s; */
+        
+        /** background简写方法 */
+        /* background: [background-color] 背景色 */
+                    /* [background-image] url() */
+                    /* [background-repeat] no-repeat repeat repeat-x repeat-y */
+                    /* 背景图像是否固定或者随着页面的其余部分滚动：fixed，scroll */
+                    /* [background-attachment] */
+                    /* 背景图像的位置：（left center right) (top center bottom)/x% y%/ xpx ypx */
+                    /* background-size 背景图片的尺寸：cover(图片依靠长边缩放)，contain（图像依靠短边缩放）/x% y%/xpx ypx */
+                    /* [background-position] / [ background-size] */
+                    /* background-origin背景图片的定位区域:border-box/padding-box/content-box */
+                    /* background-clip 背景的绘制区域。border-box/padding-box/content-box */
+                    /* [background-origin] [background-clip]; */
+      }
+
+      .user:hover {
+        /* transform: rotate(360deg) */
+        animation: rotate 1s linear infinite;
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg)}
+        to { transform: rotate(360deg)}
+      }
+
+      .user:hover::after {
+        content: 'Hello';
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="user"></div>
+  </body>
+</html>

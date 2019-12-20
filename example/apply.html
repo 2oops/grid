@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script type="text/javascript">
+
+    function Person(name, age, height) {
+      this.name = name
+      this.age = age
+      this.height = height
+    }
+    
+    // 注意参数顺序
+    function Student(name, age, height, grade) {
+      // apply和call都能劫持另一个方法，继承该方法的参数
+      Person.apply(this, arguments)
+      this.grade = grade
+    }
+
+    let student = new Student('zhangsan', 20, '186', 'grade one')
+    console.info(`name:${student.name}; age:${student.age}; grade:${student.grade}; height:${student.height}`)
+    // name:zhangsan; age:20; grade: grade one; height: 186
+
+    function Teacher(n, age, rank, height) {
+      // 区别在于参数列表不一样,参数有序
+      Person.call(this, age, n, height)
+      this.rank = rank
+    }
+
+    let teacher = new Teacher('Mrs Hu', 20, 'high', '190')
+    // 以劫持的方法参数名为准
+    console.info(`name:${teacher.name}; age:${teacher.age}; rank:${teacher.rank}; height:${teacher.height}`)
+    // name:20; age:Mrs Hu; rank:high; height:190
+    
+
+    function Animal([name, weight, age]) {
+      this.name = name
+      this.age = age
+      this.weight = weight
+    }
+
+    function Dog([name, weight, age], sounds) {
+      // 参数是数组类型适合用apply
+      Animal.apply(this, arguments)
+      this.sounds = sounds
+    }
+
+    let dog = new Dog(['king', 20, 2], 'wangwang')
+    console.log(`name:${dog.name}; age:${dog.age}; sounds:${dog.sounds}`)
+
+    function Car({name, weight}) {
+      this.name = name
+      this.weight = weight
+    }
+    function Bike(name, weight, year) {
+      Car.apply(this, arguments)
+      this.year = year
+    }
+    let bike = new Bike('zz', 20, 2018)
+    console.log(`name:${bike.name}; year:${bike.year}; weight:${bike.weight}`)
+    // name:undefined; year:2018; weight:undefined
+
+    // 借助apply传参时可以将数组拆装成列表参数，有以下妙用
+
+    // 1. Math.max()传参不接受数组，但接受列表参数, Math.min()同理
+    let arr = [1,1,5,6]
+    console.log(Math.max.apply(null, arr)) //6
+    console.log(Math.max.apply(this, arr)) //6
+
+    // 2. 利用push不能传数组
+    let arr1 = new Array("1","2","3")
+    let arr2 = new Array("4","5","6")
+    console.log(Array.prototype.push.apply(arr1, arr2))  //6
+    console.log(arr1) // Array(6)
+    </script>
+  </body>
+</html>
